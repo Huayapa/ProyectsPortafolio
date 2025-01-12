@@ -15,12 +15,13 @@
         <div class="group-btn">
           <button class="btn info" id="newprod">Nuevo</button>
           <button class="btn success" id="addprod">Guardar</button>
-          <button class="btn alert">Editar</button>
+          <button class="btn alert" id="editprod">Editar</button>
           <button class="btn danger" id="deleteprod">Borrar</button>
         </div>
         <section class="group-data">
           <article>
             <h2>Datos del Producto</h2>
+            <input type="text" name="idprod" disabled hidden>
             <label class="main-input">Productos
               <input type="text" name="producto" class="elementInput input" required disabled>
             </label>
@@ -63,5 +64,5 @@
   </main>
 </body>
 <script src="components/nav.js"></script>
-<script type="module" src="js/gestionproducts.js"></script>
+<script type="module" src="js/products/gestionproducts.js"></script>
 </html>

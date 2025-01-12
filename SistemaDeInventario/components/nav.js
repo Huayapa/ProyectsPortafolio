@@ -11,15 +11,14 @@ class nav extends HTMLElement {
   renderizadoHTML() {
     this.innerHTML = `
     <header>
-      <h2>Logo</h2>
+      <h2>Sistema</h2>
       <nav>
         <ul>
-          <li><a href="#">Inicio</a></li>
+          <li><a href="./index.html">Inicio</a></li>
           <li>
           <details>
           <summary>Sistema</summary>
           <div>
-          <a href="#">Gestion</a>
           <a href="#">Graficos</a>
           </div>
           </details>

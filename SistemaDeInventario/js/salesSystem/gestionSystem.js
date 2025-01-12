@@ -1,9 +1,10 @@
 import { redirectUrl } from "../general/redirect.js";
-import { activeForm, activeFormInit, borrarVenta } from "../general/ViewsInputsForm.js"
+import { activeForm, activeFormInit} from "../general/ViewsInputsForm.js"
 import { mostrarProdsTable } from "../products/funciones/mostrarProductos.js";
 import { mostrarProdSelectStorage } from "./funciones/mostrarProductoSelect.js";
 import { agregarProdBoleta } from "./funciones/agregarProdBoleta.js";
 import { borrarProdBoleta } from "./funciones/borrarProdBoleta.js";
+import { borrarBoleta } from "./funciones/borrarBoleta.js";
 // import { addProductListNotFormClick } from "../addProductList.js";
 // import { recuperarData } from "../getdataStorage.js";
 // import { mostrarProdsTable } from "../mostrarProducts.js";
@@ -13,7 +14,7 @@ import { borrarProdBoleta } from "./funciones/borrarProdBoleta.js";
 document.addEventListener("DOMContentLoaded", e => {
   // Activar Inputs, desactivar y activar cuando el producto ya este
   activeForm("newventa", ".elementVenta");
-  borrarVenta("borrarventa", ".elementVenta");
+  borrarBoleta("borrarventa", ".elementVenta");
   activeFormInit(".elementVenta", "storageprod")
   // Enviar a la pagina de productos, para seleccionar
   redirectUrl("btnProduct", "./gestionproductos.html");

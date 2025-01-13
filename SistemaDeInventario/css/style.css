@@ -182,7 +182,7 @@ DISEÑO MAIN DE INDEX.HTML
   max-height: 19rem;
   overflow: auto;
 }
-.table-products {
+.table-products, .table-clients {
   border: 1px solid black;
   width: 100%;
   border-collapse: collapse;

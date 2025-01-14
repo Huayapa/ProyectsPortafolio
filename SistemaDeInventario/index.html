@@ -15,7 +15,7 @@
         <div class="group-btn">
           <button class="btn info" id="newventa">Nuevo</button>
           <button class="btn success">Guardar</button>
-          <button class="btn alert">Editar</button>
+          <button class="btn alert" id="editboleta">Editar</button>
           <button class="btn danger" id="borrarventa">Borrar</button>
         </div>
         <article class="group-data">
@@ -25,7 +25,7 @@
             <input type="text" class="input-client" name="idProd" hidden>
             <label class="main-input">Nombre del Cliente
               <div class="group-input">
-                <input type="text" name="nombre" class="elementVenta input input-client" required disabled placeholder="Ingrese Producto">
+                <input type="text" name="nombre" class="elementVenta input input-client" required disabled placeholder="Ingrese Cliente">
                 <button class="elementVenta btn-group" disabled id="btn-Client">....</button>
               </div>
             </label>
@@ -78,6 +78,14 @@
           <div class="group-btn">
             <button class="btn info" id="addTicketProd">Agregar</button>
             <button class="btn danger" id="removeProdVenta">Cancelar</button>
+            <div class="table-total">
+              <section class="box-title">
+                <h3>Total</h3>
+              </section>
+              <section class="box-precio" id="section-preciototal">
+                sadas
+              </section>
+            </div>
           </div>
         </article>
         <!-- tabla de los productos comprados por el usuario -->

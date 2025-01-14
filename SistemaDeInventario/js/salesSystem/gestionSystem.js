@@ -6,6 +6,8 @@ import { agregarProdBoleta } from "./funciones/agregarProdBoleta.js";
 import { borrarProdBoleta } from "./funciones/borrarProdBoleta.js";
 import { borrarBoleta } from "./funciones/borrarBoleta.js";
 import { mostrarClientSelectStorage } from "./funciones/mostrarClientBoleta.js";
+import { editarBoleta } from "./funciones/editBoleta.js";
+import { mostrarPrecioTotal } from "./funciones/addTotalPrecioProd.js";
 
 
 document.addEventListener("DOMContentLoaded", e => {
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", e => {
   activeForm("newventa", ".elementVenta");
   borrarBoleta("borrarventa", ".elementVenta");
   activeFormInit(".elementVenta", "storageprod")
+  activeFormInit(".elementVenta", "storageclient")
   // Enviar a la pagina de productos y clientes, para seleccionar
   redirectUrl("btnProduct", "./gestionproductos.html");
   redirectUrl("btn-Client", "./gestioncliente.html")
@@ -25,4 +28,8 @@ document.addEventListener("DOMContentLoaded", e => {
   agregarProdBoleta("addTicketProd","cantidad")
   // Cancelar producto de la boleta
   borrarProdBoleta("removeProdVenta", "productos-factura")
+  // Editar boleta (Productos)
+  editarBoleta("editboleta", "form-venta");
+  // Mostrar el precio total de los productos
+  mostrarPrecioTotal("section-preciototal")
 })

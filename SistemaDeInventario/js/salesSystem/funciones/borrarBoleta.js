@@ -14,6 +14,8 @@ export function borrarBoleta(btnActive, classElement) {
     })
     // Limpiar dato del producto
     if(localStorage.getItem("storageprod")) localStorage.removeItem("storageprod");
+    // limpiar datos del cliente
+    if(localStorage.getItem("storageclient")) localStorage.removeItem("storageclient");
     // Devolver el stock
     if(localStorage.getItem("prods") && localStorage.getItem("prodsBoleta")) {
       // Comparo los productos con su identificado con todos los productos, para devolver el stock

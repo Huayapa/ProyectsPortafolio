@@ -11,5 +11,6 @@ export function mostrarClientSelectStorage(elementValue) {
   $elements.forEach((el, indice) => {
     let valueData = ["id","name", "dni", "phoneNumber", "address"][indice];
     el.value = storage[valueData];
-  }); 
+    el.setAttribute("disabled", "")
+  });
 }

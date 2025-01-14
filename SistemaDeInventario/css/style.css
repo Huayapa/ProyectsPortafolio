@@ -232,3 +232,28 @@ Estilo para borrar o cancelar una lista de producto
   background-color: rgb(168, 7, 7);
   color: white;
 }
+
+/* Diseño para la seccion de el pago total */
+.table-total {
+  max-width: 10rem;
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+  border: 2px solid #262626;
+}
+.table-total .box-title {
+  background-color: #262626;
+  color: white;
+  max-width: 4rem;
+  width: 100%;
+  text-align: center;
+  & h3 {
+    margin: 0.6rem 0;
+  }
+}
+.table-total .box-precio {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

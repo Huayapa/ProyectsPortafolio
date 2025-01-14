@@ -1,5 +1,7 @@
 import { activeForm, borrarVenta } from "../general/ViewsInputsForm.js"
-import { agregarCliente } from "./funciones/agregarcliente.js";
+import { agregarclienteVenta } from "./funciones/agregarclienteventa.js";
+import { editarClient } from "./funciones/editarcliente.js";
+import { keepCliente } from "./funciones/guardarcliente.js";
 import { mostrarClientsTable } from "./funciones/mostrarclientes.js";
 
 document.addEventListener("DOMContentLoaded", e => {
@@ -7,8 +9,11 @@ document.addEventListener("DOMContentLoaded", e => {
   activeForm("newclient", ".input");
   borrarVenta("deleteclient", ".input");
   // Agregar Cliente
-  agregarCliente("addclient", "form-client");
+  keepCliente("addclient", "form-client")
   // Mostrar los clientes en la tabla
   mostrarClientsTable("tables-data-clients", "clients");
   // Editar cliente ya existente
+  editarClient("editclient", "tables-data-clients", "form-client")
+  // Enviar el cliente a los datos de la venta
+  agregarclienteVenta("tables-data-clients", "./index.html")
 })

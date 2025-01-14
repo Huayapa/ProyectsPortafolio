@@ -1,9 +1,10 @@
 import { getStorage, setStorage } from "../../general/storagejs.js";
+// FALTA HACER QUE DIFERENCIA AGREGAR CON EDITAR 
 
 /*
 FUNCION PARA AGREGAR AL LOCALSTORAGE LOS CLIENTES
 */
-export function agregarCliente(idBtnAdd, idFormMain) {
+export function keepCliente(idBtnAdd, idFormMain) {
   // Definir valores
   const $btnAdd = document.getElementById(idBtnAdd),
     $FormMain = document.getElementById(idFormMain);
@@ -25,6 +26,17 @@ export function agregarCliente(idBtnAdd, idFormMain) {
     if(!localStorage.getItem("clients")) {
       setStorage("clients", [newClient]);
       location.reload();
+    }
+    // Verificar si se editara el cliente
+    if(idclient.value != "") {
+      let editClient = getStorage("clients").map(prod => {
+        if(prod.id == Number(idclient.value)) prod = newClient;
+        return prod
+      })
+      setStorage("clients", editClient);
+      alert("Editado correctamente");
+      location.reload();
+      return;
     }
     // Si existe, actualizaremos el valor
     let totalClients = getStorage("clients");

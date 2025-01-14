@@ -5,6 +5,7 @@ import { mostrarProdSelectStorage } from "./funciones/mostrarProductoSelect.js";
 import { agregarProdBoleta } from "./funciones/agregarProdBoleta.js";
 import { borrarProdBoleta } from "./funciones/borrarProdBoleta.js";
 import { borrarBoleta } from "./funciones/borrarBoleta.js";
+import { mostrarClientSelectStorage } from "./funciones/mostrarClientBoleta.js";
 
 
 document.addEventListener("DOMContentLoaded", e => {
@@ -18,6 +19,8 @@ document.addEventListener("DOMContentLoaded", e => {
   // Mostrar los productos que se hara en la orden de venta y lo que esta seleccionado en ese momento 
   mostrarProdsTable("productos-factura", "prodsBoleta");
   mostrarProdSelectStorage(".local-storage")
+  // Mostrar los clientes que se hara en la orden de venta y lo que esta seleccionado en ese momento 
+  mostrarClientSelectStorage(".input-client")
   // Agregar producto a la seccion principal (boleta de pago)
   agregarProdBoleta("addTicketProd","cantidad")
   // Cancelar producto de la boleta

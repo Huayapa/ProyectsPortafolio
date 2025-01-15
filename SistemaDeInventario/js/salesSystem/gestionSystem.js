@@ -8,6 +8,7 @@ import { borrarBoleta } from "./funciones/borrarBoleta.js";
 import { mostrarClientSelectStorage } from "./funciones/mostrarClientBoleta.js";
 import { editarBoleta } from "./funciones/editBoleta.js";
 import { mostrarPrecioTotal } from "./funciones/addTotalPrecioProd.js";
+import { guardarBoleta } from "./funciones/guardarBoleta.js";
 
 
 document.addEventListener("DOMContentLoaded", e => {
@@ -31,5 +32,7 @@ document.addEventListener("DOMContentLoaded", e => {
   // Editar boleta (Productos)
   editarBoleta("editboleta", "form-venta");
   // Mostrar el precio total de los productos
-  mostrarPrecioTotal("section-preciototal")
+  mostrarPrecioTotal("section-preciototal");
+  // Guardar boleta de venta
+  guardarBoleta("addventa", "form-venta");
 })

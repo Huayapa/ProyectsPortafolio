@@ -19,7 +19,7 @@ class nav extends HTMLElement {
           <details>
           <summary>Sistema</summary>
           <div>
-          <a href="#">Graficos</a>
+          <a href="./graficos.html">Graficos</a>
           <a href="./mostrarboletas.html">Boletas</a>
           </div>
           </details>

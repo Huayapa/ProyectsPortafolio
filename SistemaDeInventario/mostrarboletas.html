@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletas</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav-custom></nav-custom>
+  <main class="main-boleta">
+    <table class="table-products">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Vendedor</th>
+          <th>fecha de venta</th>
+          <th>cliente</th>
+          <th>Productos</th>
+          <th>Precio total</th>
+        </tr>
+      </thead>
+      <tbody id="productos-factura">
+      </tbody>
+    </table>
+  </main>
+</body>
+<script src="components/nav.js"></script>
+<script type="module" src="js/boletas/gestionboletas.js"></script>
+</html>

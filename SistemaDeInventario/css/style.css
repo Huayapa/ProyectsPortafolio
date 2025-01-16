@@ -8,6 +8,8 @@ body {
 cabezaera estilos
 */
 header {
+  position: sticky;
+  top: 0;
   width: 100%;
   min-height: 4rem;
   display: flex;
@@ -195,7 +197,7 @@ DISEÑO MAIN DE INDEX.HTML
     text-align: center;
   }
   & th, td {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
   }
 }
@@ -256,4 +258,29 @@ Estilo para borrar o cancelar una lista de producto
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ESTILOS PARA MOSTRAR LAS BOLETAS */
+.main-boleta {
+  max-width: 90rem;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 80vh;
+  /* background-color: red; */
+  & .table-products, .table-clients {
+    margin-top: 3rem;
+    min-height: 5rem;
+    
+    background-color: #e4e4e4;
+    & tr:nth-child(even) {
+      background-color: #c4c4c4;
+    }
+    & table {
+      margin-top: 0;
+      font-size: 0.8rem;
+    }
+    & .table-content {
+      vertical-align: top;
+    }
+  }
 }

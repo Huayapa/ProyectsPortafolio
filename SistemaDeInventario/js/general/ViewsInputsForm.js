@@ -9,7 +9,6 @@ export function activeForm(btnActive, classElement) {
   
   $btnActive.addEventListener("click", e => {
     e.preventDefault();
-    if(localStorage.getItem("storageprod")) return;
     $elements.forEach(el => {
       el.removeAttribute("disabled");
     })

@@ -147,7 +147,7 @@ FORMULARIO GENERAL
     padding: 0 1rem;
     margin: 0.3rem 0;
     border: 1px solid rgba(118, 118, 118, 0.3);
-    background-color: darkturquoise;
+    background-color: rgb(41, 83, 83);
     cursor: pointer;
     border-left: 0;
     &:disabled {
@@ -283,4 +283,60 @@ Estilo para borrar o cancelar una lista de producto
       vertical-align: top;
     }
   }
+}
+
+/* SECCION DE GRAFICOS */
+.main-grafico {
+  max-width: 70rem;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 80vh;
+  margin-top: 1rem;
+}
+
+.grid-grafic {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: 13rem 12rem 19rem;
+  gap: 2rem;
+  grid-template-areas: 
+  "total fecha"
+  "productos fecha"
+  "productos prodComprado"
+  ;
+  & article {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 10px;
+    & h3 {
+      margin: 0;
+    }
+    & canvas {
+      width: 100%;
+      height: max-content;
+    }
+  }
+}
+.ventaTotales {
+  grid-area: total;
+  & span {
+    font-size: 4rem;
+  }
+}
+.ventasFechas {
+  grid-area: fecha;
+}
+.stockProductos {
+  grid-area: productos;
+  justify-content: start !important;
+}
+
+.productosComprados {
+  grid-area: prodComprado;
+  
 }

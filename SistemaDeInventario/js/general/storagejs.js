@@ -2,5 +2,10 @@ export function setStorage(nameStorage, listItems) {
   localStorage.setItem(nameStorage, JSON.stringify(listItems));
 }
 export function getStorage(nameStorage) {
-  return JSON.parse(localStorage.getItem(nameStorage));
+  let storage = localStorage.getItem(nameStorage)
+  if(storage == "undefined") {
+    return undefined;
+  } else {
+    return JSON.parse(storage)
+  }
 }

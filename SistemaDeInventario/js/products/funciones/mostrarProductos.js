@@ -1,3 +1,5 @@
+import { getStorage } from "../../general/storagejs.js";
+
 /*
 FUNCION PARA MOSTRAR LOS PRODUCTOS POR MEDIO DE UNA TABLA
 */
@@ -11,7 +13,12 @@ export function mostrarProdsTable(idTableBody, nameStorage) {
     return;
   }
   // Si existe, se mostrara
-  const products = JSON.parse(localStorage.getItem(nameStorage));
+  const products = getStorage(nameStorage);
+  if(products == undefined) {
+    localStorage.removeItem(nameStorage);
+    location.reload()
+    return
+  }
   products.forEach(prod => {
     const $tr = document.createElement("tr");
     $tr.setAttribute("id", `${prod.id}-prod`);

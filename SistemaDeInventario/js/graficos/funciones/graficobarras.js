@@ -15,7 +15,7 @@ export function gb_productos(idSection) {
     data: {
       labels: listProd,
       datasets: [{
-        label: 'Productos',
+        label: 'Stock',
         data: data,
         borderWidth: 1
       }]
@@ -37,22 +37,23 @@ export function gb_ventasProd(idSection) {
    // LLamar a los productos
   if(getStorage("boletas") != undefined && getStorage("boletas")) {
     // Ordenar los productos comprados
-    const productosUnicos = [
-      ...new Set(
-        getStorage("boletas").flatMap(venta => venta.datalistprods.map(prod => prod.product))
-      ),
-    ];
-    const precioPorProducto = [
-      ...new Set(
-        getStorage("boletas").flatMap(venta => venta.datalistprods.map(prod => Number(prod.price) * Number(prod.amount)))
-      ),
-    ];
-    console.log(productosUnicos);
+    // Traer los productos de cada boleta (el producto y el precio total)
+    const resultadoprods = getStorage("boletas").reduce((acumulado, boleta) => {
+      boleta.datalistprods.forEach(prod => {
+        const key = prod.product;
+        const precioTotal = Number(prod.amount) * Number(prod.price);
+        
+        // Sumando el acumulador (si el valor no existe tomara 0 para sumarlo)
+        acumulado[key] = (acumulado[key] || 0) + precioTotal;
+      });
+      return acumulado;
+    }, {});
     
-    listProd = productosUnicos;
-    data = precioPorProducto
+    listProd = Object.keys(resultadoprods);
+    data = Object.values(resultadoprods);
   }
-  new Chart(idSection, {
+
+  const mychart = new Chart(idSection, {
     type: 'bar',
     data: {
       labels: listProd,
@@ -75,8 +76,8 @@ export function gb_ventasProd(idSection) {
         },
         y: {
           beginAtZero: true
-        }
-      }
+        },
+      },
     }
   });
 }

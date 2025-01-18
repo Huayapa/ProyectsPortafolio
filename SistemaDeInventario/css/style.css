@@ -300,9 +300,9 @@ Estilo para borrar o cancelar una lista de producto
   grid-template-rows: 13rem 12rem 19rem;
   gap: 2rem;
   grid-template-areas: 
-  "total fecha"
-  "productos fecha"
-  "productos prodComprado"
+  "total productos"
+  "fecha productos"
+  "fecha prodComprado"
   ;
   & article {
     padding: 2rem;
@@ -316,10 +316,7 @@ Estilo para borrar o cancelar una lista de producto
     & h3 {
       margin: 0;
     }
-    & canvas {
-      width: 100%;
-      height: max-content;
-    }
+
   }
 }
 .ventaTotales {

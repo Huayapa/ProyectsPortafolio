@@ -13,7 +13,7 @@ import { guardarBoleta } from "./funciones/guardarBoleta.js";
 
 document.addEventListener("DOMContentLoaded", e => {
   // Activar Inputs, desactivar y activar cuando el producto ya este
-  activeForm("newventa", ".elementVenta");
+  activeForm("newventa", ".elementVenta", "storageclient");
   borrarBoleta("borrarventa", ".elementVenta");
   activeFormInit(".elementVenta", "storageprod")
   activeFormInit(".elementVenta", "storageclient")

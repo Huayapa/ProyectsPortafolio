@@ -6,7 +6,7 @@ import { mostrarClientsTable } from "./funciones/mostrarclientes.js";
 
 document.addEventListener("DOMContentLoaded", e => {
   // Habilitar y desabilitar inputs de formulario
-  activeForm("newclient", ".input");
+  activeForm("newclient", ".input", undefined);
   borrarVenta("deleteclient", ".input");
   // Agregar Cliente
   keepCliente("addclient", "form-client")

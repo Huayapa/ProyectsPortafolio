@@ -3,10 +3,10 @@ ESTA FUNCION SIRVE PARA HABILITAR LOS INPUTS DEL FORMULARIO BLOQUEADOS
 - Necesita el boton que creara esta accion
 - Nombre de clase que habilitara los formulario
 */
-export function activeForm(btnActive, classElement) {
+export function activeForm(btnActive, classElement, storageValid) {
   const $btnActive = document.getElementById(btnActive), 
     $elements = document.querySelectorAll(classElement);
-  
+  if(storageValid && localStorage.getItem(storageValid)) return;
   $btnActive.addEventListener("click", e => {
     e.preventDefault();
     $elements.forEach(el => {

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mostrar los productos creados
   mostrarProdsTable("tables-data-prods", "prods");
   // Activar Inputs y desactivar
-  activeForm("newprod", ".elementInput");
+  activeForm("newprod", ".elementInput", undefined);
   borrarVenta("deleteprod", ".elementInput");
   // Guardar Producto en la lista general de productos
   keepProdStorage("addprod", "form-product");

@@ -5,6 +5,7 @@ export function mostrarVentaTotal(idSection) {
   // Sacara las ventas totales
   if(!getStorage("boletas")) {
     $content.textContent = "S/ 0";
+    return;
   }
   let boletasprecio = getStorage("boletas").map(boleta => boleta.totalprecio);
   let preciototal = 0;

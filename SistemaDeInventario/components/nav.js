@@ -11,7 +11,7 @@ class nav extends HTMLElement {
   renderizadoHTML() {
     this.innerHTML = `
     <header>
-      <h2>Sistema</h2>
+      <h2>Sistema de venta</h2>
       <nav>
         <ul>
           <li><a href="./index.html">Inicio</a></li>

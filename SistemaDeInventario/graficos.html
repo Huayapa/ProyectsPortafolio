@@ -15,6 +15,14 @@
     </article>
     <article class="ventasFechas">
       <h3>Ventas por fecha</h3>
+      <select id="optionVentaFecha">
+        <option value="hour">Horas</option>
+        <option value="day">Dia</option>
+        <option value="week">Semana</option>
+        <option value="month">Mes</option>
+        <option value="year">Año</option>
+      </select>
+      <canvas id="contentventafecha"></canvas>
     </article>
     <article class="stockProductos">
       <h3>Ventas de productos</h3>
@@ -24,9 +32,14 @@
       <h3>Stock de productos</h3>
       <canvas id="productosComprados"></canvas>
     </article>
+    <article class="contentresetAll">
+      <h3>Restablecer todo</h3>
+      <button id="btnreset">Resetear</button>
+    </article>
   </main>
 </body>
 <script src="components/nav.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script type="module" src="js/graficos/gestiongraficos.js"></script>
 </html>

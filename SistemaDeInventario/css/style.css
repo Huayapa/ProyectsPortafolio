@@ -147,7 +147,7 @@ FORMULARIO GENERAL
     padding: 0 1rem;
     margin: 0.3rem 0;
     border: 1px solid rgba(118, 118, 118, 0.3);
-    background-color: rgb(41, 83, 83);
+    background-color: rgb(30, 119, 235);
     cursor: pointer;
     border-left: 0;
     &:disabled {
@@ -287,7 +287,7 @@ Estilo para borrar o cancelar una lista de producto
 
 /* SECCION DE GRAFICOS */
 .main-grafico {
-  max-width: 70rem;
+  max-width: 75rem;
   width: 100%;
   margin: 0 auto;
   min-height: 80vh;
@@ -297,15 +297,16 @@ Estilo para borrar o cancelar una lista de producto
 .grid-grafic {
   display: grid;
   grid-template-columns: 40% 1fr;
-  grid-template-rows: 13rem 12rem 19rem;
+  grid-template-rows: 10rem 11rem 14rem 5rem;
   gap: 2rem;
   grid-template-areas: 
   "total productos"
   "fecha productos"
   "fecha prodComprado"
+  "contentreset prodComprado"
   ;
   & article {
-    padding: 2rem;
+    padding: 1.5rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -316,7 +317,9 @@ Estilo para borrar o cancelar una lista de producto
     & h3 {
       margin: 0;
     }
-
+    & canvas {
+      width: 100% !important; 
+    }
   }
 }
 .ventaTotales {
@@ -327,10 +330,32 @@ Estilo para borrar o cancelar una lista de producto
 }
 .ventasFechas {
   grid-area: fecha;
+  & #optionVentaFecha {
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
 }
 .stockProductos {
   grid-area: productos;
   justify-content: start !important;
+}
+.contentresetAll {
+  grid-area: contentreset;
+  flex-direction: row !important;
+  gap: 1rem;
+  flex-wrap: wrap;
+  & button {
+    cursor: pointer;
+    padding: 0.5rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: rgb(155, 4, 4);
+    color: white;
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: #262626;
+    }
+  }
 }
 
 .productosComprados {

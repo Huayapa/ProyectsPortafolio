@@ -12,6 +12,7 @@ export function borrarProdBoleta(IdBtnCancel, IdTableBody) {
   //Detectar el cambio cuando se haga clic
   $btnDelete.addEventListener("click", e => {
     e.preventDefault();
+    if(!localStorage.getItem("storageprod")) return;
     // Agregar diseño para el usuario sepa que puede eliminar
     $btnDelete.textContent = "Selecciona un producto";
     $btnDelete.disabled = true;
@@ -23,7 +24,7 @@ export function borrarProdBoleta(IdBtnCancel, IdTableBody) {
         let isRemove = confirm("Esta seguro de quitar el producto de la boleta?");
         if(!isRemove) return location.reload();
         // Verificar que exista el localstorage de la boleta
-        if(!localStorage.getItem("prodsBoleta")) return alert("No se encontro los productos de la boleta");
+        if(!localStorage.getItem("prodsBoleta"))  alert("No se encontro los productos de la boleta"); location.reload();
         // Obtener id y buscar los datos en el boleto
         let idProdDelete = Number($tr.id.split("-")[0]);
         let prodList = JSON.parse(localStorage.getItem("prodsBoleta")).filter(prod => prod.id === idProdDelete)

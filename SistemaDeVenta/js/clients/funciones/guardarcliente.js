@@ -26,6 +26,7 @@ export function keepCliente(idBtnAdd, idFormMain) {
     if(!localStorage.getItem("clients")) {
       setStorage("clients", [newClient]);
       location.reload();
+      return
     }
     // Verificar si se editara el cliente
     if(idclient.value != "") {

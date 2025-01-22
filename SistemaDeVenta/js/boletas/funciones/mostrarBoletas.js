@@ -18,6 +18,7 @@ export function mostrarBoletas(tbodytableid) {
     <td class="table-content">${tableClient(boleta.dataclient)}</td>
     <td class="table-content">${tableProducts(boleta.datalistprods)}</td>
     <td>S/${boleta.totalprecio}</td>
+    <td><button class="btn-boleta" data-id="${boleta.id}">🖨️</button></td>
     `;
     $tbody.appendChild($tr);
   });

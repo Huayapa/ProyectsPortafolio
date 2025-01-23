@@ -1,3 +1,4 @@
+import { generarBoleta } from "../../general/generarBoleta.js";
 import { mostrarPrecio } from "../../general/mostrarPrecio.js";
 import { getStorage, setStorage } from "../../general/storagejs.js";
 
@@ -39,6 +40,7 @@ export function guardarBoleta(btnAddId, formId) {
     // Verificar si la boleta ya existe
     if(!getStorage("boletas")) {
       setStorage("boletas", [newBoleta]);
+      
     } else {
       // Ya que si existe, añadiremos uno nuevo
       let newid = 1;
@@ -57,6 +59,9 @@ export function guardarBoleta(btnAddId, formId) {
     localStorage.removeItem("storageprod");
     localStorage.removeItem("prodsBoleta");
     alert("Boleta generada")
+    // Preguntar si desea imprimir boleta
+    const isPrintBoleta = confirm("Desea imprimir la boleta?");
+    if(isPrintBoleta) generarBoleta(newBoleta.id);
     location.reload();
   })
 }

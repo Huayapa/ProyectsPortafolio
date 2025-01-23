@@ -8,6 +8,14 @@ export function generarBoleta(idBoleta) {
     // Obtener los datos de la boleta 
     const boleta = getStorage("boletas").filter(boleta => boleta.id === Number(idBoleta))[0];
     if(boleta == undefined) throw "No se encontro la boleta";
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    let fecha = new Date(boleta.fechaventa);
+    
     // Crear pdf para la boleta
     const docDefinition = {
       content: [
@@ -65,20 +73,22 @@ export function generarBoleta(idBoleta) {
           margin: [0, 5],
         },
         { text: `Lista de productos`, margin: [0, 10], style: 'header2' },
-        { text: `Fecha: ${boleta.fechaventa}`, margin: [0, 10] },
+        { text: `Fecha: ${fecha.toLocaleTimeString("es-ES", options)}`, margin: [0, 10] },
         {
             table: {
                 headerRows: 1,
-                widths: ['*', 'auto', 'auto', 'auto'],
+                widths: ['*', "*" ,'auto', 'auto', 'auto'],
                 body: [
                   [
                     { text: 'Producto', fillColor: '#333', color: '#fff' }, // Color oscuro y texto blanco
+                    { text: 'Descripción', fillColor: '#333', color: '#fff' }, // Color oscuro y texto blanco
                     { text: 'Cantidad', fillColor: '#333', color: '#fff' },
                     { text: 'Precio', fillColor: '#333', color: '#fff' },
                     { text: 'Subtotal', fillColor: '#333', color: '#fff' }
                   ],
                     ...boleta.datalistprods.map(prod => [
                         prod.product,
+                        prod.descript,
                         prod.amount,
                         `S/${prod.price}`,
                         `S/${prod.amount * prod.price}`
@@ -86,7 +96,7 @@ export function generarBoleta(idBoleta) {
                 ]
             }
         },
-        { text: `Monto Total: $${boleta.totalprecio}`, margin: [0, 10], bold: true, alignment: 'right' },
+        { text: `Monto Total: S/${boleta.totalprecio}`, margin: [0, 10], bold: true, alignment: 'right' },
       ],
       styles: {
           header: {

@@ -11,26 +11,105 @@ export function generarBoleta(idBoleta) {
     // Crear pdf para la boleta
     const docDefinition = {
       content: [
-          // Título de la boleta
-          { text: 'BOLETA DE PAGO', style: 'header' },
-
-          // Fecha
-          { text: `Fecha ${boleta.fechaventa}`, alignment: 'right' },
-          
-          // Espacio en blanco
-          { text: '\n' },
-
-          // Información del cliente
-          { text: `Cliente: ${boleta.dataclient.name}`, style: 'subheader' },
-          { text: 'Monto Total: $150.00', style: 'subheader' },
-
-          // Espacio en blanco
-          { text: '\n' },
-
-          // Mensaje de agradecimiento
-          { text: 'Gracias por su compra!', style: 'footer' },
+        // Primera columna
+        {
+          alignment: 'bigger',
+          columns: [
+            { //Nombre compañia
+              text: 'Nombre Empresa',width: 100,style: 'header'
+            },
+            {
+              type: 'none',
+              alignment: 'center',
+              ol: [
+                'web: portafolio-huayapa.vercel.app/',
+                { text: `Vendedor: ${boleta.namevendedor}`, margin: [0, 5], style: "header2" },
+              ],width: 250
+            },
+            {
+              style: 'tableExample',
+              table: {
+                body: [
+                  ['RUC: 9832103021'],
+                  [{ text: 'Boleta de Venta', style: 'header' },],
+                ]
+              }
+            },
+          ]
+        },
+        {
+          text: '',
+          margin: [0, 5],
+        },
+        // Datos del cliente
+        {
+          style: 'tableExample',
+          alignment: 'left',
+          table: {
+            widths: ['*'],
+            body: [
+              [{
+                type: 'none',
+                ol: [
+                  { text: `Cliente        : ${boleta.dataclient.name}`, style: "headerleft" },
+                  { text: `Dni              : ${boleta.dataclient.dni}`, style: "headerleft" },
+                  { text: `Telf             : ${boleta.dataclient.phoneNumber}`, style: "headerleft" },
+                  { text: `Direccion   : ${boleta.dataclient.address}`, style: "headerleft" },
+                ]
+              }],
+            ]
+          }
+        },
+        {
+          text: '',
+          margin: [0, 5],
+        },
+        { text: `Lista de productos`, margin: [0, 10], style: 'header2' },
+        { text: `Fecha: ${boleta.fechaventa}`, margin: [0, 10] },
+        {
+            table: {
+                headerRows: 1,
+                widths: ['*', 'auto', 'auto', 'auto'],
+                body: [
+                  [
+                    { text: 'Producto', fillColor: '#333', color: '#fff' }, // Color oscuro y texto blanco
+                    { text: 'Cantidad', fillColor: '#333', color: '#fff' },
+                    { text: 'Precio', fillColor: '#333', color: '#fff' },
+                    { text: 'Subtotal', fillColor: '#333', color: '#fff' }
+                  ],
+                    ...boleta.datalistprods.map(prod => [
+                        prod.product,
+                        prod.amount,
+                        `S/${prod.price}`,
+                        `S/${prod.amount * prod.price}`
+                    ])
+                ]
+            }
+        },
+        { text: `Monto Total: $${boleta.totalprecio}`, margin: [0, 10], bold: true, alignment: 'right' },
       ],
-    };
+      styles: {
+          header: {
+              fontSize: 18,
+              bold: true,
+              alignment: 'center',
+              margin: [0, 0, 0, 10]
+          },
+          header2: {
+            fontSize: 14,
+            bold: true,
+            alignment: 'center',
+          },
+          headerleft: {
+            fontSize: 12,
+            bold: false,
+            alignment: 'left',
+          }
+      },
+      defaultStyle: {
+        columnGap: 20
+      }
+  };
     // Generar el PDF
     pdfMake.createPdf(docDefinition).open();
   } catch (err) {

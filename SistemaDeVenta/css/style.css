@@ -237,7 +237,7 @@ DISEÑO MAIN DE INDEX.HTML
 DISEÑO GESTION DE PRODUCTOS
 */
 
-.section-table-products, .section-table-clients {
+.section-table-products, .section-table-clients, .section-table {
   width: 100%;
   max-height: 31rem;
   & tr, td {
@@ -294,6 +294,7 @@ Estilo para borrar o cancelar una lista de producto
   max-width: 90rem;
   width: 100%;
   margin: 0 auto;
+  min-height: 80vh;
   /* background-color: red; */
   & .table-products, .table-clients {
     margin-top: 3rem;
